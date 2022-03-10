@@ -11,7 +11,7 @@ function CountryDetail({ country }) {
     <div className="overflow-hidden dark:text-white-full">
       <div className="my-10 p-1">
         <Link to="/">
-          <button className="flex justify-between items-center bg-white-full dark:bg-darkBlue-el  shadow-md py-2 rounded-md px-7 hover:shadow-xl transition-shadow ">
+          <button className="inline-flex justify-between items-center bg-white-full dark:bg-darkBlue-el  shadow-md py-2 rounded-md px-7 hover:shadow-xl transition-shadow ">
             <BsArrowLeft />
             <span className="ml-2 text-base text-black dark:text-white-full">Back</span>
           </button>
@@ -77,7 +77,7 @@ function CountryDetail({ country }) {
 
           <div>
             <span className="font-semibold text-base mr-4">Border Counteries: </span>
-            <div className="inline-flex flex-wrap gap-2">
+            <div className="inline-flex flex-wrap gap-3">
               {!country.borders && <span>No Countries</span>}
               {country.borders &&
                 country?.borders?.map((neighbour) => (
