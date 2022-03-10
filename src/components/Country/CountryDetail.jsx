@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 const nf = new Intl.NumberFormat("en-US");
 function CountryDetail({ country }) {
+  useEffect(() => {
+    document.title = "Country " + country?.name?.common;
+  }, [country]);
   const currencies = Object.entries(country?.currencies);
   return (
     <div className="overflow-hidden dark:text-white-full">
