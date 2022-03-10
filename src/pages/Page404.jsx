@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Page404() {
+  useEffect(() => {
+    document.title = "404 - Not Found";
+  }, []);
   return (
     <div className="container mx-auto px-4  text-center max-h-window relative">
       <div className="absolute abs-center">

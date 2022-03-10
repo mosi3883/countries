@@ -3,9 +3,14 @@ import useFetch from "../hooks/useFetch";
 import Error from "../components/UI/Error";
 import Spinner from "../components/UI/Spinner";
 import CountryDetail from "../components/Country/CountryDetail";
+import { useEffect } from "react";
 
 function Country() {
   const params = useParams();
+
+  useEffect(() => {
+    document.title = "country " + params.cca3;
+  }, [params.cca3]);
 
   const { data, error, isPending } = useFetch(
     `https://restcountries.com/v3.1/alpha/${params.cca3}`

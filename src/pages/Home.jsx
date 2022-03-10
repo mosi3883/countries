@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CountryList from "../components/Country/CountryList";
 import Header from "../components/Header/Header";
 import Error from "../components/UI/Error";
@@ -6,6 +6,9 @@ import Spinner from "../components/UI/Spinner";
 import useFetch from "../hooks/useFetch";
 
 function Home() {
+  useEffect(() => {
+    document.title = "Country List";
+  }, []);
   const [fetchUrl, setFetchUrl] = useState("https://restcountries.com/v3.1/all");
   const { data: countries, error, isPending } = useFetch(fetchUrl);
 
@@ -21,6 +24,7 @@ function Home() {
     const url = `https://restcountries.com/v3.1/name/${q}`;
     setFetchUrl(url);
   }, []);
+
   return (
     <div className=" min-h-window">
       <Header
