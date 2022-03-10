@@ -39,6 +39,7 @@ function Header({ onRegionChange, onSearchChange }) {
         </div>
         <div>
           <select
+            aria-label="region"
             name="region"
             className="p-1"
             defaultValue="all"
