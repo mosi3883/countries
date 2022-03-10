@@ -4,7 +4,7 @@ import { BsArrowLeft } from "react-icons/bs";
 const nf = new Intl.NumberFormat("en-US");
 function CountryDetail({ country }) {
   useEffect(() => {
-    document.title = "Country " + country?.name?.common;
+    document.title = "Country information - " + country?.name?.common;
   }, [country]);
   const currencies = Object.entries(country?.currencies);
   return (

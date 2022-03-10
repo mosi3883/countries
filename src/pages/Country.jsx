@@ -9,8 +9,8 @@ function Country() {
   const params = useParams();
 
   useEffect(() => {
-    document.title = "Country " + params.cca3;
-  }, [params.cca3]);
+    document.title = "Country information";
+  }, []);
 
   const { data, error, isPending } = useFetch(
     `https://restcountries.com/v3.1/alpha/${params.cca3}`
