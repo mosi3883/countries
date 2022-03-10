@@ -9,13 +9,15 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="" element={<Home />} />
-          <Route path="country/:cca3" element={<Country />} />
-          <Route path="*" element={<Page404 />} />
-        </Route>
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="" element={<Home />} />
+            <Route path="country/:cca3" element={<Country />} />
+            <Route path="*" element={<Page404 />} />
+          </Route>
+        </Routes>
+      </main>
     </div>
   );
 }

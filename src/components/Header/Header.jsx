@@ -38,7 +38,12 @@ function Header({ onRegionChange, onSearchChange }) {
           />
         </div>
         <div>
-          <select className="p-1" defaultValue="all" onChange={regionChangeHandler}>
+          <select
+            name="region"
+            className="p-1"
+            defaultValue="all"
+            onChange={regionChangeHandler}
+          >
             <option value="all">Filter by Region</option>
             <option value="africa">Africa</option>
             <option value="america">America</option>

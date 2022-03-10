@@ -23,7 +23,7 @@ function Navbar() {
     setMode(newMode);
   };
   return (
-    <div className="shadow bg-white-full dark:bg-darkBlue-el">
+    <nav className="shadow bg-white-full dark:bg-darkBlue-el">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between ">
         <h1 className="text-xl font-semibold dark:text-white-full">
           <Link to="/">Where in the world?</Link>
@@ -41,7 +41,7 @@ function Navbar() {
           </span>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

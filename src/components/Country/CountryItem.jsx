@@ -17,7 +17,7 @@ function CountryItem({ country }) {
         alt={country.name.common + " flag"}
       />
       <div className="p-4 pb-7 text-xs shadow-inner">
-        <h3 className="font-bold text-base mb-3">{country.name.common}</h3>
+        <h2 className="font-bold text-base mb-3">{country.name.common}</h2>
         <div>
           <strong className="font-bold">Population:</strong>{" "}
           <span className="font-light"> {nf.format(country.population)}</span>
