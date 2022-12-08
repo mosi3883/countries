@@ -3,13 +3,14 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import CounteriesProvider from './context/counteries';
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+    <CounteriesProvider>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </CounteriesProvider>
+  </BrowserRouter>
 );

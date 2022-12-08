@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CountryList from '../components/Country/CountryList';
 import Header from '../components/Header/Header';
 import Error from '../components/UI/Error';
 import Spinner from '../components/UI/Spinner';
-import useFetch from '../hooks/useFetch';
+import { counteriesContext } from '../context/counteries';
 
-function Home() {
+function Home({ error, isPending }) {
+  const countriesCtx = useContext(counteriesContext);
+
   useEffect(() => {
     document.title = 'Countries facts';
   }, []);
-  const fetchUrl = 'https://restcountries.com/v3.1/all';
+
   const [countries, setCountries] = useState([]);
   const [region, setRegion] = useState('all');
   const [search, setSearch] = useState('');
-  const { data, error, isPending } = useFetch(fetchUrl);
-  const [allCountires, setAllCountires] = useState([]);
 
   useEffect(() => {
-    if (data) {
-      setCountries(data);
-      setAllCountires(data);
-    }
-  }, [data]);
+    setCountries(countriesCtx.allCounteries);
+  }, [countriesCtx.allCounteries]);
 
   const filterCountriesByRegion = (region) => {
     setRegion(region);
@@ -32,7 +29,10 @@ function Home() {
   };
 
   useEffect(() => {
-    let newCountries = allCountires.filter((country) => {
+    if (!countriesCtx || !countriesCtx.allCounteries) {
+      return;
+    }
+    let newCountries = countriesCtx.allCounteries.filter((country) => {
       return (
         country.name.common.toLowerCase().includes(search) ||
         country.name.official.toLowerCase().includes(search)
@@ -46,7 +46,7 @@ function Home() {
     }
 
     setCountries(newCountries);
-  }, [search, region, allCountires]);
+  }, [search, region, countriesCtx]);
 
   return (
     <div className='min-h-window'>

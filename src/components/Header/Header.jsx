@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IconContext } from 'react-icons';
 import { BsSearch } from 'react-icons/bs';
 function Header({ onRegionChange, onSearchChange }) {
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState('');
   const regionChangeHandler = function (e) {
     onRegionChange(e.target.value);
   };
@@ -37,12 +37,14 @@ function Header({ onRegionChange, onSearchChange }) {
             onChange={searchChangeHandler}
             value={search}
           />
-          <button
-            className='dark:text-white-full px-2 cursor-pointer'
-            onClick={() => setSearch('')}
-          >
-            x
-          </button>
+          {search.length > 0 && (
+            <button
+              className='dark:text-white-full px-2 cursor-pointer'
+              onClick={() => setSearch('')}
+            >
+              x
+            </button>
+          )}
         </div>
         <div>
           <select
