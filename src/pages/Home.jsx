@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CountryList from '../components/Country/CountryList';
 import Header from '../components/Header/Header';
 import Error from '../components/UI/Error';
@@ -9,24 +9,47 @@ function Home() {
   useEffect(() => {
     document.title = 'Countries facts';
   }, []);
-  const [fetchUrl, setFetchUrl] = useState('https://restcountries.com/v3.1/all');
-  const { data: countries, error, isPending } = useFetch(fetchUrl);
+  const fetchUrl = 'https://restcountries.com/v3.1/all';
+  const [countries, setCountries] = useState([]);
+  const [region, setRegion] = useState('all');
+  const [search, setSearch] = useState('');
+  const { data, error, isPending } = useFetch(fetchUrl);
+  const [allCountires, setAllCountires] = useState([]);
 
-  const filterCountriesByRegion = function (region) {
-    const url =
-      region === 'all'
-        ? 'https://restcountries.com/v3.1/all'
-        : `https://restcountries.com/v3.1/region/${region}`;
-    setFetchUrl(url);
+  useEffect(() => {
+    if (data) {
+      setCountries(data);
+      setAllCountires(data);
+    }
+  }, [data]);
+
+  const filterCountriesByRegion = (region) => {
+    setRegion(region);
   };
 
-  const filterCountriesBySearch = useCallback(function (q) {
-    const url = `https://restcountries.com/v3.1/name/${q}`;
-    setFetchUrl(url);
-  }, []);
+  const filterCountriesBySearch = (query) => {
+    setSearch(query);
+  };
+
+  useEffect(() => {
+    let newCountries = allCountires.filter((country) => {
+      return (
+        country.name.common.toLowerCase().includes(search) ||
+        country.name.official.toLowerCase().includes(search)
+      );
+    });
+
+    if (region !== 'all') {
+      newCountries = newCountries.filter((country) => {
+        return country.region.toLowerCase() === region;
+      });
+    }
+
+    setCountries(newCountries);
+  }, [search, region, allCountires]);
 
   return (
-    <div className=' min-h-window'>
+    <div className='min-h-window'>
       <Header
         onRegionChange={filterCountriesByRegion}
         onSearchChange={filterCountriesBySearch}

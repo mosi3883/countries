@@ -1,9 +1,9 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 function Layout() {
   return (
-    <div className="App font-nunito text-darkBlue-text bg-white-bg dark:bg-darkBlue-bg text-sm">
+    <div className='App font-nunito text-darkBlue-text overflow-hidden bg-white-bg dark:bg-darkBlue-bg text-sm'>
       <Outlet />
     </div>
   );
