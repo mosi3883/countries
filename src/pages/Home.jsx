@@ -12,13 +12,9 @@ function Home({ error, isPending }) {
     document.title = 'Countries facts';
   }, []);
 
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState(countriesCtx.allCounteries);
   const [region, setRegion] = useState('all');
   const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    setCountries(countriesCtx.allCounteries);
-  }, [countriesCtx.allCounteries]);
 
   const filterCountriesByRegion = (region) => {
     setRegion(region);

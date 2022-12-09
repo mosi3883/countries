@@ -1,0 +1,3 @@
+fix image load- old flag before loading new flag on slow connection(needs to be spinner)
+fix 404 page ui
+fix no countries ui
