@@ -8,9 +8,10 @@ import Page404 from './pages/Page404';
 import { counteriesContext } from './context/counteries';
 import { useContext, useEffect } from 'react';
 import useFetch from './hooks/useFetch';
+const fetchUrl = 'https://restcountries.com/v3.1/all';
 function App() {
   const countriesCtx = useContext(counteriesContext);
-  const fetchUrl = 'https://restcountries.com/v3.1/all';
+
   const { data, error, isPending } = useFetch(fetchUrl);
   useEffect(() => {
     countriesCtx.setAllCounteries(data);
@@ -21,7 +22,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Layout />}>
-            <Route path='' element={<Home error={error} isPending={isPending} />} />
+            <Route index element={<Home error={error} isPending={isPending} />} />
             <Route path='country/:cca3' element={<Country />} />
             <Route path='*' element={<Page404 />} />
           </Route>
@@ -32,3 +33,4 @@ function App() {
 }
 
 export default App;
+

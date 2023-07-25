@@ -5,7 +5,7 @@ function CountryItem({ country }) {
   const navigate = useNavigate();
   return (
     <div
-      className='shadow bg-white-full dark:bg-darkBlue-el dark:text-white-bg rounded overflow-hidden cursor-pointer transition-all hover:shadow-xl md:hover:scale-105 duration-500 '
+      className='shadow bg-white-full dark:bg-darkBlue-el dark:text-white-bg rounded overflow-hidden cursor-pointer transition-transform hover:shadow-xl md:hover:scale-105 duration-500 '
       onClick={() => {
         navigate(`/country/${country.cca3}`);
       }}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IconContext } from 'react-icons';
 import { BsSearch } from 'react-icons/bs';
 function Header({ onRegionChange, onSearchChange }) {
