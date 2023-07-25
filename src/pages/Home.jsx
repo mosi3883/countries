@@ -9,7 +9,7 @@ function Home({ error, isPending }) {
   const countriesCtx = useContext(counteriesContext);
 
   useEffect(() => {
-    document.title = 'Countries facts';
+    document.title = 'Countries Facts';
   }, []);
 
   const [countries, setCountries] = useState(countriesCtx.allCounteries);
