@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
-import Spinner from '../UI/Spinner';
+// import Spinner from '../UI/Spinner';
 const nf = new Intl.NumberFormat('en-US');
 function CountryDetail({ country }) {
   //const [imageLoading, setImageLoading] = useState(false);

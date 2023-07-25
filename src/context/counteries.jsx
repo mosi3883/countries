@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 export const counteriesContext = React.createContext({
-  allCounteries: ['a'],
-  setAllCounteries: (data) => {},
+  allCounteries: [],
+  setAllCounteries: (data) => {
+    console.log(data);
+  },
 });
 
 const CounteriesProvider = ({ children }) => {

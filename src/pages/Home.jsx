@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import CountryList from '../components/Country/CountryList';
 import Header from '../components/Header/Header';
 import Error from '../components/UI/Error';
